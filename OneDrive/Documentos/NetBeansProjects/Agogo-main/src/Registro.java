@@ -1,12 +1,12 @@
 
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 public class Registro extends javax.swing.JFrame {
     ArrayList<Usuario> listaUsuarios = new ArrayList<>();
     
     public Registro(ArrayList<Usuario> listaUsuarios) {
     this.listaUsuarios = listaUsuarios;
-    initComponents();
 }
     
     public Registro() {
@@ -25,7 +25,7 @@ public class Registro extends javax.swing.JFrame {
         password = new javax.swing.JPasswordField();
         iniciarsesion = new javax.swing.JButton();
         mensaje = new javax.swing.JLabel();
-        resgistrarse = new javax.swing.JButton();
+        registrarse = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -57,10 +57,10 @@ public class Registro extends javax.swing.JFrame {
         mensaje.setForeground(new java.awt.Color(0, 0, 0));
         mensaje.setText("\"\"");
 
-        resgistrarse.setText("Registrarse");
-        resgistrarse.addActionListener(new java.awt.event.ActionListener() {
+        registrarse.setText("Registrarse");
+        registrarse.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                resgistrarseActionPerformed(evt);
+                registrarseActionPerformed(evt);
             }
         });
 
@@ -73,7 +73,7 @@ public class Registro extends javax.swing.JFrame {
                 .addGap(113, 113, 113)
                 .addComponent(iniciarsesion)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 188, Short.MAX_VALUE)
-                .addComponent(resgistrarse)
+                .addComponent(registrarse)
                 .addGap(160, 160, 160))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -113,7 +113,7 @@ public class Registro extends javax.swing.JFrame {
                 .addGap(55, 55, 55)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(iniciarsesion)
-                    .addComponent(resgistrarse))
+                    .addComponent(registrarse))
                 .addGap(36, 36, 36)
                 .addComponent(mensaje, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(100, Short.MAX_VALUE))
@@ -133,7 +133,9 @@ public class Registro extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void resgistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resgistrarseActionPerformed
+    private void registrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrarseActionPerformed
+        try{
+            
         String mensaje;
         String correo = txtcorreo.getText();
         String pass = String.valueOf(password.getPassword());
@@ -142,13 +144,17 @@ public class Registro extends javax.swing.JFrame {
             mensaje = "Todos los campos son obligatorios";
             this.mensaje.setText(mensaje);
         }else{
-            //Agregar los usuario nuevo al arreglo
+            //Agregar los usuarios nuevos al arreglo
             Usuario usua = new Usuario(correo,pass);
             listaUsuarios.add(usua);
             mensaje = "Usuario registrado";
             this.mensaje.setText(mensaje);
         }
-    }//GEN-LAST:event_resgistrarseActionPerformed
+        
+        }catch(NumberFormatException e){
+            JOptionPane.showMessageDialog(null, "Ingrese un dato valido por favor");
+        }   
+    }//GEN-LAST:event_registrarseActionPerformed
 
     private void iniciarsesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iniciarsesionActionPerformed
         Iniciarsesion iniciar = new Iniciarsesion(listaUsuarios);
@@ -175,7 +181,7 @@ public class Registro extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel mensaje;
     private javax.swing.JPasswordField password;
-    private javax.swing.JButton resgistrarse;
+    private javax.swing.JButton registrarse;
     private javax.swing.JTextField txtcorreo;
     // End of variables declaration//GEN-END:variables
 }

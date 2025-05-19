@@ -118,6 +118,10 @@ public class BuscarProductos extends javax.swing.JPanel {
                         " | Valor Venta: " + p.getGanancia());
                 encontrado = true;
                 break;
+            }else{
+                if(!encontrado){
+                    productobuscado.setText("Producto con ID "+ idBuscado+"no encontrado");
+                }
             }
         }
         

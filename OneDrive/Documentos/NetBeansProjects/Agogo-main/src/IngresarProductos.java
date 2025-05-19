@@ -29,7 +29,7 @@ public class IngresarProductos extends javax.swing.JPanel {
         //esto es para definir la forma de como se va a mostrar la tabla 
         String[] id = {"ID","Nombre","Valor Compra","Cantidad (Stock)","Valor Venta"};
         
-        //Ingresar el id en la tabla (Primary key)
+        //Ingresar el id en la tabla ()
         mt.setColumnIdentifiers(id);
         
         //Linea para inicializar la tabla y sus datos
@@ -191,7 +191,8 @@ public class IngresarProductos extends javax.swing.JPanel {
     
     // Metodo para ingresar productos a la tabla
     private void btnanadirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnanadirActionPerformed
-    
+
+    try{
         
     int id = contadorID;
     contadorID++; // Incrementa para el siguiente producto (ID)
@@ -233,6 +234,9 @@ public class IngresarProductos extends javax.swing.JPanel {
         System.out.println("-------------------------------");
     }
     
+    }catch(NumberFormatException e){
+            JOptionPane.showMessageDialog(null, "Ingrese un dato valido por favor");
+        }
     }//GEN-LAST:event_btnanadirActionPerformed
 
     //Borra un dato de la tabla

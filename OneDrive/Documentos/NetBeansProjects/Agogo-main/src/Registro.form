@@ -52,7 +52,7 @@
                   <EmptySpace min="-2" pref="113" max="-2" attributes="0"/>
                   <Component id="iniciarsesion" min="-2" max="-2" attributes="0"/>
                   <EmptySpace pref="188" max="32767" attributes="0"/>
-                  <Component id="resgistrarse" min="-2" max="-2" attributes="0"/>
+                  <Component id="registrarse" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="160" max="-2" attributes="0"/>
               </Group>
               <Group type="102" attributes="0">
@@ -101,7 +101,7 @@
                   <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="iniciarsesion" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="resgistrarse" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="registrarse" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
                   <Component id="mensaje" min="-2" pref="28" max="-2" attributes="0"/>
@@ -165,12 +165,12 @@
             <Property name="text" type="java.lang.String" value="&quot;&quot;"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="resgistrarse">
+        <Component class="javax.swing.JButton" name="registrarse">
           <Properties>
             <Property name="text" type="java.lang.String" value="Registrarse"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="resgistrarseActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="registrarseActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JSeparator" name="jSeparator1">
