@@ -38,9 +38,11 @@ public class Principal extends javax.swing.JFrame {
         btnsalir = new javax.swing.JButton();
         btnproductos = new javax.swing.JButton();
         btnventa = new javax.swing.JButton();
-        btnreportes = new javax.swing.JButton();
         content = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        buscarproducto = new javax.swing.JMenu();
+        productobus = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -76,16 +78,6 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
-        btnreportes.setBackground(new java.awt.Color(55, 65, 81));
-        btnreportes.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btnreportes.setForeground(new java.awt.Color(255, 255, 255));
-        btnreportes.setText("Buscar Productos");
-        btnreportes.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnreportesActionPerformed(evt);
-            }
-        });
-
         content.setBackground(new java.awt.Color(204, 204, 204));
 
         javax.swing.GroupLayout contentLayout = new javax.swing.GroupLayout(content);
@@ -110,7 +102,6 @@ public class Principal extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnproductos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnventa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnreportes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnsalir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
@@ -128,12 +119,33 @@ public class Principal extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(btnventa, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btnreportes, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
                 .addComponent(btnsalir, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(154, Short.MAX_VALUE))
+                .addContainerGap(218, Short.MAX_VALUE))
             .addComponent(content, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
+
+        jMenuBar1.setBackground(new java.awt.Color(255, 255, 255));
+        jMenuBar1.setForeground(new java.awt.Color(0, 0, 0));
+
+        buscarproducto.setForeground(new java.awt.Color(102, 0, 102));
+        buscarproducto.setText("Buscar Producto");
+        buscarproducto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buscarproductoActionPerformed(evt);
+            }
+        });
+
+        productobus.setText("Producto");
+        productobus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                productobusActionPerformed(evt);
+            }
+        });
+        buscarproducto.add(productobus);
+
+        jMenuBar1.add(buscarproducto);
+
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -165,15 +177,21 @@ public class Principal extends javax.swing.JFrame {
             }         
     }//GEN-LAST:event_btnproductosActionPerformed
 
-    private void btnreportesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnreportesActionPerformed
-        mostrarPanel(new BuscarProductos());
-    }//GEN-LAST:event_btnreportesActionPerformed
-
     private void btnsalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsalirActionPerformed
         Iniciarsesion iniciar = new Iniciarsesion();
         iniciar.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnsalirActionPerformed
+
+    private void productobusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_productobusActionPerformed
+        BuscarProductos2 buscarpro = new BuscarProductos2();
+        buscarpro.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_productobusActionPerformed
+
+    private void buscarproductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarproductoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buscarproductoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -212,11 +230,13 @@ public class Principal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnproductos;
-    private javax.swing.JButton btnreportes;
     private javax.swing.JButton btnsalir;
     private javax.swing.JButton btnventa;
+    private javax.swing.JMenu buscarproducto;
     private javax.swing.JPanel content;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JMenuItem productobus;
     // End of variables declaration//GEN-END:variables
 }
