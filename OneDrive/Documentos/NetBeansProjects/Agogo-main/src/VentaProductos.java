@@ -1,15 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
+import milibreria.OperacionFactura;
 
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
- */
-
-/**
- *
- * @author ctoro
- */
 public class VentaProductos extends javax.swing.JPanel {
      //public static List<VentaProductos> Ventas = new ArrayList<>();
      //public static List<Productos> productos = new ArrayList<>();
@@ -160,9 +152,9 @@ public class VentaProductos extends javax.swing.JPanel {
                                     .addComponent(rdbasia)
                                     .addComponent(btncomprar)
                                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(133, 133, 133)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
                                 .addComponent(lblfactura, javax.swing.GroupLayout.PREFERRED_SIZE, 353, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addGap(166, 166, 166))
+                .addGap(245, 245, 245))
         );
         p2Layout.setVerticalGroup(
             p2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -236,44 +228,31 @@ public class VentaProductos extends javax.swing.JPanel {
 
     private void btncomprarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncomprarActionPerformed
     
-        
+        //operaciones.imprimirF(
     //variables para obtener el valor de los textfield
     String nombreP = etnombrep.getText();
     int cantidad = Integer.parseInt(etcantidad.getText());
     double valor = Double.parseDouble(etvalor.getText());
     String nombreC = etnombreC.getText();
-    double subtotal = valor * cantidad;
-    double recargo = 0;
+    
 
     //Seleccionar los checkbuttons
-    if (rdbnacional.isSelected()) {
-        recargo = subtotal * 0.05;
-    } else if (rdbeuropa.isSelected()) {
-        recargo = subtotal * 0.10;
-    } else if (rdbasia.isSelected()) {
-        recargo = subtotal * 0.15;
-    }
+    String origen = "medellin";
     
-    // Medellín no tiene recargo
-    double total = subtotal + recargo;
+    if(rdbnacional.isSelected()) 
+        origen = "Nacional";
+    else if(rdbeuropa.isSelected())
+        origen = "Europa";
+    else if(rdbasia.isSelected())
+        origen = "Asia";
+     // Generar la factura
+            String facturaGenerada = OperacionFactura.generarFactura(nombreC, cantidad, valor, nombreP, origen);
 
-    // Imprime la factura generada
-    String factura = "<html>"
-        + "<h2 style='text-align:center;'>FACTURA DE COMPRA</h2>"
-        + "<hr>"
-        + "<b>Comprador:</b> " + nombreC + "<br>"
-        + "<b>Producto:</b> " + nombreP + "<br>"
-        + "<b>Cantidad:</b> " + cantidad + "<br>"
-        + "<b>Valor unitario:</b> $" + String.format("%.2f", valor) + "<br>"
-        + "<b>Subtotal:</b> $" + String.format("%.2f", subtotal) + "<br>"
-        + "<b>Recargo (5%):</b> $" + String.format("%.2f", recargo) + "<br>"
-        + "<hr>"
-        + "<b style='font-size:14px;'>Total a pagar:</b> <b>$" + String.format("%.2f", total) + "</b>"
-        + "</html>";
-    
-        ultimaFactura = factura; // Esta variable contiene la factura a mostrar en el label 
+            // Mostrar la factura en el JLabel
+            lblfactura.setText(facturaGenerada);
 
-        lblfactura.setText(factura); // si se elimina no aparece factura en el label
+            // Guardar como última factura
+            ultimaFactura = facturaGenerada;
     }//GEN-LAST:event_btncomprarActionPerformed
 
     private void etcantidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_etcantidadActionPerformed

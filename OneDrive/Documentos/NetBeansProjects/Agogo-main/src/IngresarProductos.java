@@ -12,6 +12,7 @@ public class IngresarProductos extends javax.swing.JPanel {
     
     
     
+    
     //Variable que me almacena el id del producto en un contadorID "Variable Global"
     private static int contadorID = 1;
     

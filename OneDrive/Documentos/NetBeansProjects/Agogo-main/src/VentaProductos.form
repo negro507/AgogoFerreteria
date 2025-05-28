@@ -81,13 +81,13 @@
                                       <Component id="btncomprar" min="-2" max="-2" attributes="0"/>
                                       <Component id="jLabel6" min="-2" pref="265" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace min="-2" pref="133" max="-2" attributes="0"/>
+                                  <EmptySpace pref="65" max="32767" attributes="0"/>
                                   <Component id="lblfactura" min="-2" pref="353" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
                   </Group>
-                  <EmptySpace min="-2" pref="166" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="245" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
