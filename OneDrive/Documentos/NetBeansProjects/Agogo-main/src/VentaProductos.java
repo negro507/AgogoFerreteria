@@ -237,7 +237,8 @@ public class VentaProductos extends javax.swing.JPanel {
     
 
     //Seleccionar los checkbuttons
-    String origen = "medellin";
+    String origen = "Medellin";
+        System.out.println("Hola mundo");
     
     if(rdbnacional.isSelected()) 
         origen = "Nacional";
